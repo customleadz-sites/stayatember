@@ -280,23 +280,7 @@
     font-size:15.5px;line-height:1.75;
     color:var(--cream-dim);
   }
-  /* diamond photo floating down into the panorama band */
-  .diamond{
-    width:clamp(220px,26vw,330px);
-    aspect-ratio:1;
-    margin:64px auto -170px;
-    position:relative;z-index:3;
-    transform:rotate(45deg);
-    overflow:hidden;
-    border-radius:6px;
-    box-shadow:0 30px 80px rgba(0,0,0,.55);
-  }
-  .diamond img{
-    position:absolute;left:50%;top:50%;
-    width:145%;height:145%;
-    transform:translate(-50%,-50%) rotate(-45deg);
-    object-fit:cover;
-  }
+  .setting{padding-bottom:90px}
 
   /* ---------- full-bleed panorama band ---------- */
   .panorama{
@@ -331,7 +315,14 @@
     padding:120px 48px 140px;
     display:grid;grid-template-columns:5fr 6fr;
     gap:clamp(48px,7vw,100px);
-    align-items:center;
+    align-items:start;
+  }
+  .here-photo{margin:44px 0 0}
+  .here-photo img{width:100%;height:auto;display:block;border-radius:4px}
+  .here-photo figcaption{
+    margin-top:12px;
+    font-size:11px;letter-spacing:.16em;color:rgba(241,237,230,.4);
+    text-transform:uppercase;
   }
   .here h2{
     font-size:clamp(28px,3.2vw,42px);
@@ -544,9 +535,6 @@
       <p>Ember sits alone on the north shore, past where the road stops being paved. There is one neighbor, and it is a mountain. Phones lose a bar on the drive in and nobody has ever complained.</p>
       <p>The water is glass in the morning and ink at night. Loons at dawn, owls after dark. Bring someone who can sit still, or someone who needs to learn.</p>
     </div>
-    <figure class="diamond">
-      <img src="assets/bedroom.jpg" alt="Ember's bedroom, a cream linen bed against a warm oak wall" loading="lazy">
-    </figure>
   </section>
 
   <div class="panorama">
@@ -558,6 +546,10 @@
     <div class="reveal">
       <h2>Everything's already <span class="t-dim">up there.</span></h2>
       <p>The firewood is stacked, the sauna is lit with one switch, and the kitchen is stocked better than most homes. Arrive with groceries and a change of clothes. That's the whole packing list.</p>
+      <figure class="here-photo">
+        <img src="assets/bedroom.jpg" alt="Ember's bedroom, a cream linen bed against a warm oak wall" loading="lazy">
+        <figcaption>The bedroom</figcaption>
+      </figure>
     </div>
     <ul class="amen-card reveal">
       <li><svg viewBox="0 0 24 24"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M5 10V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/></svg>King bed + sleeper sofa, sleeps 4</li>
