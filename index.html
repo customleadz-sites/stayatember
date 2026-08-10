@@ -418,42 +418,37 @@
     .near-cols{grid-template-columns:1fr;gap:44px}
   }
 
-  /* ---------- book ---------- */
+  /* ---------- book: the text lives ON the bedroom wall in the photo ---------- */
   .book{
     position:relative;
-    padding:150px 48px 60px;
-    text-align:center;
     overflow:hidden;
+    margin-top:40px;
   }
-  .book::before{
-    content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
-    width:min(700px,90vw);height:420px;
-    background:radial-gradient(ellipse at center top, rgba(231,154,78,.16), transparent 68%);
-    pointer-events:none;
+  .book-bg{width:100%;height:auto;display:block}
+  /* melt the warm photo edges into the black page */
+  .book::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(to bottom, var(--ink) 0%, rgba(7,9,11,0) 16%),
+      linear-gradient(to top, var(--ink) 0%, rgba(7,9,11,0) 14%),
+      linear-gradient(to right, var(--ink) 0%, rgba(7,9,11,0) 8%),
+      linear-gradient(to left, var(--ink) 0%, rgba(7,9,11,0) 8%);
   }
-  .book .eyebrow{margin-bottom:20px}
-  .book h2{
-    font-size:clamp(34px,4.4vw,58px);
-    font-weight:750;line-height:1.06;letter-spacing:-.03em;
-    margin-bottom:18px;
+  .book-cta-wrap{
+    position:absolute;left:50%;top:51.5%;transform:translateX(-50%);
+    z-index:2;
   }
-  .book>p{
-    color:var(--cream-dim);font-size:16px;line-height:1.7;
-    max-width:46ch;margin:0 auto 38px;
+  @media(max-width:700px){
+    .book-cta-wrap{top:56%}
   }
-  .book-price{
-    display:flex;align-items:baseline;justify-content:center;gap:8px;
-    margin-bottom:34px;
-  }
-  .book-price strong{font-size:30px;font-weight:800}
-  .book-price span{color:var(--cream-dim);font-size:14px}
   .footer{
-    margin-top:130px;padding-top:28px;
+    max-width:1280px;margin:0 auto;
+    padding:34px 48px 40px;
     border-top:1px solid var(--hairline);
     display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
     font-size:12px;color:rgba(241,237,230,.35);letter-spacing:.05em;
   }
-  @media(max-width:900px){.book{padding:100px 24px 40px}}
+  @media(max-width:900px){.footer{padding:28px 24px 32px}}
 
   /* next sections land here — built one at a time with Kennedy */
 </style>
@@ -588,16 +583,19 @@
   </section>
 
   <section class="book" id="book">
-    <p class="eyebrow">Reservations</p>
-    <h2 class="reveal">Take the slow way out.</h2>
-    <p class="reveal">Two-night minimum. Self check-in. Firewood, sauna, and the entire lake included.</p>
-    <div class="book-price reveal"><strong>$385</strong><span>per night</span></div>
-    <a class="book-btn reveal" href="#book">Book Now</a>
-    <footer class="footer">
-      <span>EMBER · A concept stay</span>
-      <span>Demo site by CustomLeadz</span>
-    </footer>
+    <picture>
+      <source media="(max-width:700px)" srcset="assets/book-wall-mobile.jpg">
+      <img class="book-bg" src="assets/book-wall.jpg" alt="Ember's bedroom with reservation details lettered on the oak wall: Take the slow way out. Two-night minimum, self check-in, $385 per night">
+    </picture>
+    <div class="book-cta-wrap">
+      <a class="book-btn" href="#book">Book Now</a>
+    </div>
   </section>
+
+  <footer class="footer">
+    <span>EMBER · A concept stay</span>
+    <span>Demo site by CustomLeadz</span>
+  </footer>
 
   <script>
   (function(){
